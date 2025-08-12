@@ -1,0 +1,29 @@
+.input-focus-red:focus {
+    border-color: #e50914 !important;
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25) !important;
+}
+
+.card-content .card-image {
+    display: block;
+}
+
+.card-content .card-info {
+    display: none;
+}
+
+.card-content:hover .card-image {
+    display: none;
+}
+
+.card-content:hover .card-info {
+    display: block;
+}
+
+.truncate-overview {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+main {
+    min-height: 100vh;
+}
