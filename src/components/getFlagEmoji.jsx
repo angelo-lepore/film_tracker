@@ -1,3 +1,4 @@
+// Mappa delle lingue
 const langToCountry = {
   af: "ZA", // Afrikaans - Sudafrica
   am: "ET", // Amarico - Etiopia
@@ -87,14 +88,22 @@ const langToCountry = {
   zu: "ZA", // Zulu - Sudafrica
 };
 
+// Funzione per ottenere l'emoji della bandiera a partire dal codice lingua
 function getFlagEmoji(lang) {
+  // Prende il codice paese corrispondente alla lingua
   const countryCode = langToCountry[lang.toLowerCase()];
   if (!countryCode) return ""; // Niente bandiera se non trovata
+
+  // Trasforma ogni lettera del codice paese in un "Regional Indicator Symbol"
+  // Questi simboli sono quelli usati per mostrare le bandiere come emoji
   const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt());
+    .toUpperCase() // Assicura che il codice paese sia in maiuscolo (es: IT)
+    .split("") // Divide in singoli caratteri (es: ["I", "T"])
+    .map((char) => 127397 + char.charCodeAt()); // Converte ogni lettera in emoji unicode
+
+  // Restituisce la bandiera come emoji (es: 🇮🇹)
   return String.fromCodePoint(...codePoints);
 }
 
+// Esporta la funzione
 export default getFlagEmoji;

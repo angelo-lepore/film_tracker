@@ -3,22 +3,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-// Import dei componenti di routing
+// Import dei componenti di routing (gestione delle pagine)
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-// Import del layout e delle pagine
+// Import del layout principale e delle pagine dell'app
 import DefaultLayout from "./layout/DefaultLayout.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
 
-// Import css
+// Import del file CSS
 import "./index.css";
 
-// Import funzione per mostrare bandiera lingua e stelle
-import getFlagEmoji from "./components/getFlagEmoji";
-import renderStars from "./components/renderStars";
-
-// Componente principale dell'applicazione
+// Componente principale dell'applicazione React
 function App() {
   return (
     <>
@@ -28,15 +24,7 @@ function App() {
           <Route element={<DefaultLayout />}>
             {/* Rotte principali */}
             <Route path="/" element={<HomePage />} />
-            <Route
-              path="/search"
-              element={
-                <SearchPage
-                  getFlagEmoji={getFlagEmoji}
-                  renderStars={renderStars}
-                />
-              }
-            />
+            <Route path="/search" element={<SearchPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
@@ -44,4 +32,5 @@ function App() {
   );
 }
 
+// Esporto il componente App
 export default App;
